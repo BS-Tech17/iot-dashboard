@@ -6,8 +6,11 @@
   <img src="https://img.shields.io/badge/Prisma-ORM-%232D3748?style=for-the-badge&logo=prisma"/>
   <img src="https://img.shields.io/badge/PostgreSQL-Database-%23336791?style=for-the-badge&logo=postgresql"/>
   <img src="https://img.shields.io/badge/Clerk-Authentication-%236C47FF?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel"/>
   <img src="https://img.shields.io/badge/IoT-Data%20Simulation-%2300C853?style=for-the-badge"/>
 </p>
+
+
 
 <hr/>
 
@@ -47,7 +50,7 @@ User (Authenticated via Clerk)
 Next.js Frontend (React 19)
         │
         ▼
-API Routes (Protected)
+Protected API Routes
         │
         ▼
 Prisma ORM
@@ -69,7 +72,7 @@ Sensor Data Simulation Engine
 
 <h2>🛠 Tech Stack</h2>
 
-* ⚛️ Frontend: Next.js 15 (App Router)
+* ⚛️ Next.js 15 (App Router)
 * ⚛️ React 19
 * 🎨 Tailwind CSS
 * 📊 Recharts (Data Visualization)
@@ -77,6 +80,7 @@ Sensor Data Simulation Engine
 * 🐘 PostgreSQL
 * 🔐 Clerk Authentication
 * 🚀 Turbopack (Development)
+* ▲ Deployed on Vercel
 
 ---
 
@@ -84,21 +88,20 @@ Sensor Data Simulation Engine
 
 This project uses **Clerk** for secure authentication and user management.
 
-### Features:
+### Features
 
 * Email / Password Authentication
 * Secure Session Handling
-* Protected Routes
-* User-specific Project Access
-* Middleware-based route protection
-* Scalable auth infrastructure
+* Middleware-Protected Routes
+* User-Specific Project Isolation
+* Backend Identity Validation
 
-### How It Works:
+### Access Flow
 
-* Users must sign in to access the dashboard.
-* Each project is associated with a specific authenticated user.
-* Backend APIs validate user identity before data access.
-* Unauthorized access is automatically restricted.
+1. User signs up / logs in
+2. Protected dashboard access granted
+3. Projects and devices tied to authenticated user ID
+4. Unauthorized requests automatically blocked
 
 ---
 
@@ -123,14 +126,14 @@ This project uses **Clerk** for secure authentication and user management.
 
 * Interactive charts
 * Sensor-wise filtering
-* Device-specific views
+* Device-specific analytics
 * Historical data tracking
 
 ### 🔄 Persistent Data Storage
 
 * Timestamped sensor logs
-* Structured relational database schema
-* Scalable analytics-ready design
+* Structured relational schema
+* Analytics-ready database design
 
 ---
 
@@ -150,7 +153,29 @@ This project uses **Clerk** for secure authentication and user management.
 
 ---
 
-<h2>🔌 Installation & Setup</h2>
+<h2>🚀 Deployment (Vercel)</h2>
+
+This project is deployed using **Vercel**.
+
+### Steps to Deploy
+
+1. Push project to GitHub
+2. Import repository in Vercel
+3. Add environment variables:
+   - DATABASE_URL
+   - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+   - CLERK_SECRET_KEY
+4. Deploy
+
+Live URL:
+
+```
+https://your-vercel-project-url.vercel.app
+```
+
+---
+
+<h2>🔌 Local Installation & Setup</h2>
 
 ### 1️⃣ Clone Repository
 
@@ -159,19 +184,15 @@ git clone https://github.com/your-username/iot-device-simulator.git
 cd iot-device-simulator
 ```
 
----
-
 ### 2️⃣ Install Dependencies
 
 ```
 npm install
 ```
 
----
-
 ### 3️⃣ Setup Environment Variables
 
-Create a `.env` file in the root directory:
+Create a `.env` file:
 
 ```
 DATABASE_URL="your_postgresql_connection_string"
@@ -182,8 +203,6 @@ CLERK_SIGN_IN_URL=/sign-in
 CLERK_SIGN_UP_URL=/sign-up
 ```
 
----
-
 ### 4️⃣ Setup Database
 
 ```
@@ -191,15 +210,13 @@ npx prisma migrate dev
 npx prisma generate
 ```
 
----
-
 ### 5️⃣ Run Development Server
 
 ```
 npm run dev
 ```
 
-Open in browser:
+Visit:
 
 ```
 http://localhost:3000
@@ -212,36 +229,20 @@ http://localhost:3000
 * IoT architecture prototyping
 * Academic research simulations
 * Secure multi-user IoT dashboards
-* Sensor data testing before hardware deployment
-* Cloud pipeline validation
-
----
-
-<h2>🎥 Demo</h2>
-
-Add visuals here:
-
-```
-![Dashboard Demo](docs/dashboard.gif)
-```
-
-or
-
-```
-![Project Screenshot](docs/project.png)
-```
+* Sensor data validation before hardware deployment
+* Cloud data pipeline testing
 
 ---
 
 <h2>📈 Future Enhancements</h2>
 
-* MQTT integration
-* WebSocket real-time streaming
-* Edge device emulator
-* CSV / API export functionality
-* AI-based anomaly detection
-* Role-based access control (RBAC)
-* Cloud deployment pipeline
+* MQTT Integration
+* WebSocket Real-Time Streaming
+* Edge Device Emulator
+* CSV / API Export
+* AI-Based Anomaly Detection
+* Role-Based Access Control (RBAC)
+* Scalable Cloud Logging
 
 ---
 
@@ -249,7 +250,7 @@ or
 
 * Secure full-stack IoT architecture simulation
 * Real-time data generation & visualization
-* User-authenticated multi-project system
+* Authenticated multi-project system
 * Modular device-sensor modeling
 * Production-ready modern tech stack
 
@@ -262,7 +263,3 @@ B.Tech — Computer Science (IoT & Intelligent Systems)
 Full Stack IoT Systems | Embedded AI | Applied Simulation Platforms  
 
 ---
-
-<h2>📜 License</h2>
-
-This project is shared for educational, research, and demonstration purposes.
