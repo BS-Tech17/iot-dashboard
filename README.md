@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/badge/React-19-%2361DAFB?style=for-the-badge&logo=react&logoColor=black"/>
   <img src="https://img.shields.io/badge/Prisma-ORM-%232D3748?style=for-the-badge&logo=prisma"/>
   <img src="https://img.shields.io/badge/PostgreSQL-Database-%23336791?style=for-the-badge&logo=postgresql"/>
+  <img src="https://img.shields.io/badge/Clerk-Authentication-%236C47FF?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/IoT-Data%20Simulation-%2300C853?style=for-the-badge"/>
 </p>
 
@@ -18,8 +19,8 @@ sensor behavior, and data visualization workflows. This introduces cost,
 scalability limitations, and deployment delays.
 
 This project provides a configurable IoT device simulation platform that
-generates real-time sensor data and visualizes it through a modern web dashboard —
-eliminating the need for physical hardware during development.
+generates real-time sensor data and visualizes it through a secure,
+modern web dashboard — eliminating the need for physical hardware during development.
 </p>
 
 ---
@@ -27,12 +28,12 @@ eliminating the need for physical hardware during development.
 <h2>🧠 System Overview</h2>
 
 <p>
-A full-stack IoT simulation platform that allows users to create virtual projects,
+A full-stack IoT simulation platform that allows authenticated users to create virtual projects,
 configure devices and sensors, generate dynamic data streams, and visualize
 analytics in real-time.
 
 The system replicates real-world IoT infrastructure behavior using a scalable,
-production-ready architecture.
+production-ready architecture with secure user-based access control.
 </p>
 
 ---
@@ -40,13 +41,13 @@ production-ready architecture.
 <h2>🏗 System Architecture</h2>
 
 ```
-User (Web Dashboard)
+User (Authenticated via Clerk)
         │
         ▼
 Next.js Frontend (React 19)
         │
         ▼
-API Routes (Server Components)
+API Routes (Protected)
         │
         ▼
 Prisma ORM
@@ -76,6 +77,28 @@ Sensor Data Simulation Engine
 * 🐘 PostgreSQL
 * 🔐 Clerk Authentication
 * 🚀 Turbopack (Development)
+
+---
+
+<h2>🔐 Authentication (Clerk Integration)</h2>
+
+This project uses **Clerk** for secure authentication and user management.
+
+### Features:
+
+* Email / Password Authentication
+* Secure Session Handling
+* Protected Routes
+* User-specific Project Access
+* Middleware-based route protection
+* Scalable auth infrastructure
+
+### How It Works:
+
+* Users must sign in to access the dashboard.
+* Each project is associated with a specific authenticated user.
+* Backend APIs validate user identity before data access.
+* Unauthorized access is automatically restricted.
 
 ---
 
@@ -109,12 +132,6 @@ Sensor Data Simulation Engine
 * Structured relational database schema
 * Scalable analytics-ready design
 
-### 🔐 Authentication & Access Control
-
-* Secure login
-* Protected routes
-* User-specific project access
-
 ---
 
 <h2>📂 Folder Structure (Simplified)</h2>
@@ -128,6 +145,7 @@ Sensor Data Simulation Engine
   schema.prisma
 /components
 /lib
+/middleware.ts
 ```
 
 ---
@@ -157,8 +175,11 @@ Create a `.env` file in the root directory:
 
 ```
 DATABASE_URL="your_postgresql_connection_string"
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_key
-CLERK_SECRET_KEY=your_secret
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+CLERK_SIGN_IN_URL=/sign-in
+CLERK_SIGN_UP_URL=/sign-up
 ```
 
 ---
@@ -190,9 +211,9 @@ http://localhost:3000
 
 * IoT architecture prototyping
 * Academic research simulations
+* Secure multi-user IoT dashboards
 * Sensor data testing before hardware deployment
 * Cloud pipeline validation
-* Demo-ready IoT dashboards
 
 ---
 
@@ -219,16 +240,17 @@ or
 * Edge device emulator
 * CSV / API export functionality
 * AI-based anomaly detection
+* Role-based access control (RBAC)
 * Cloud deployment pipeline
 
 ---
 
 <h2>🏅 Key Takeaways</h2>
 
-* Full-stack IoT architecture simulation
+* Secure full-stack IoT architecture simulation
 * Real-time data generation & visualization
+* User-authenticated multi-project system
 * Modular device-sensor modeling
-* Scalable dashboard structure
 * Production-ready modern tech stack
 
 ---
@@ -239,3 +261,8 @@ or
 B.Tech — Computer Science (IoT & Intelligent Systems)  
 Full Stack IoT Systems | Embedded AI | Applied Simulation Platforms  
 
+---
+
+<h2>📜 License</h2>
+
+This project is shared for educational, research, and demonstration purposes.
